@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EARTH — Intelligence, Engineered.</title>
+
+<meta name="description"
+content="FAYA researches businesses, identifies operational gaps, and engineers intelligent systems that solve real problems.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f5f5f2;
+    --text: #111111;
+    --muted: #737373;
+    --line: #d9d9d5;
+    --dark: #111111;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 24px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    mix-blend-mode: multiply;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.logo span {
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 13px;
+}
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 1px;
+    background: #111;
+    transition: width .3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 150px 5vw 70px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 58%;
+    position: relative;
+    z-index: 3;
+}
+
+.eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--muted);
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    font-size: clamp(64px, 9vw, 145px);
+    line-height: .88;
+    letter-spacing: -.075em;
+    font-weight: 700;
+    max-width: 950px;
+}
+
+.hero h1 .light {
+    font-weight: 300;
+}
+
+.hero-description {
+    max-width: 570px;
+    margin-top: 42px;
+    font-size: 18px;
+    line-height: 1.55;
+    color: #4e4e4e;
+}
+
+.hero-bottom {
+    margin-top: 65px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.button {
+    background: #111;
+    color: white;
+    padding: 15px 23px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    transition: transform .25s ease, background .25s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    background: #333;
+}
+
+.hero-note {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* =========================
+   SYSTEM VISUAL
+========================= */
+
+.system-visual {
+    position: absolute;
+    width: 48vw;
+    height: 48vw;
+    max-width: 700px;
+    max-height: 700px;
+    right: -7vw;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .8;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid #d3d3ce;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit.one {
+    width: 35%;
+    height: 35%;
+}
+
+.orbit.two {
+    width: 60%;
+    height: 60%;
+}
+
+.orbit.three {
+    width: 88%;
+    height: 88%;
+}
+
+.core {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #111;
+    box-shadow:
+        0 0 0 20px rgba(0,0,0,.035),
+        0 0 0 50px rgba(0,0,0,.02);
+}
+
+.node {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: #111;
+    border-radius: 50%;
+}
+
+.node.n1 {
+    top: 18%;
+    left: 50%;
+}
+
+.node.n2 {
+    top: 50%;
+    right: 8%;
+}
+
+.node.n3 {
+    bottom: 12%;
+    left: 35%;
+}
+
+.node.n4 {
+    top: 30%;
+    left: 13%;
+}
+
+.label {
+    position: absolute;
+    font-size: 9px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.label.l1 {
+    top: 15%;
+    right: 22%;
+}
+
+.label.l2 {
+    bottom: 20%;
+    right: 12%;
+}
+
+.label.l3 {
+    bottom: 28%;
+    left: 12%;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 5vw;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: #888;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    padding: 170px 5vw;
+    border-top: 1px solid var(--line);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+}
+
+.section-number {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: .12em;
+}
+
+.intro h2 {
+    font-size: clamp(42px, 6vw, 85px);
+    line-height: .95;
+    letter-spacing: -.06em;
+    font-weight: 500;
+    max-width: 950px;
+}
+
+.intro h2 strong {
+    font-weight: 700;
+}
+
+.intro-text {
+    margin-top: 45px;
+    max-width: 650px;
+    font-size: 17px;
+    color: #555;
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+.process {
+    background: #111;
+    color: #fff;
+    padding: 140px 5vw;
+}
+
+.process-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 90px;
+}
+
+.process-title {
+    font-size: clamp(45px, 6vw, 90px);
+    letter-spacing: -.06em;
+    line-height: .9;
+}
+
+.process-description {
+    max-width: 300px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.process-list {
+    border-top: 1px solid #333;
+}
+
+.process-item {
+    display: grid;
+    grid-template-columns: 90px 1fr 1fr;
+    gap: 30px;
+    padding: 32px 0;
+    border-bottom: 1px solid #333;
+    transition: padding-left .3s ease;
+}
+
+.process-item:hover {
+    padding-left: 15px;
+}
+
+.process-number {
+    color: #777;
+    font-size: 12px;
+}
+
+.process-name {
+    font-size: clamp(25px, 3vw, 42px);
+    letter-spacing: -.04em;
+}
+
+.process-copy {
+    color: #999;
+    font-size: 14px;
+    max-width: 420px;
+}
+
+/* =========================
+   CASE STUDIES
+========================= */
+
+.cases {
+    padding: 150px 5vw;
+}
+
+.cases-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 90px;
+}
+
+.cases h2 {
+    font-size: clamp(48px, 7vw, 100px);
+    line-height: .9;
+    letter-spacing: -.07em;
+}
+
+.cases-intro {
+    max-width: 300px;
+    color: #777;
+    font-size: 14px;
+}
+
+.case {
+    display: grid;
+    grid-template-columns: 100px 1.1fr 1fr;
+    gap: 50px;
+    padding: 60px 0;
+    border-top: 1px solid var(--line);
+}
+
+.case:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.case-number {
+    font-size: 11px;
+    color: #888;
+}
+
+.case-category {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: #888;
+    margin-bottom: 18px;
+}
+
+.case h3 {
+    font-size: clamp(30px, 4vw, 55px);
+    line-height: .95;
+    letter-spacing: -.05em;
+    font-weight: 500;
+}
+
+.case-description {
+    color: #555;
+    font-size: 15px;
+    max-width: 450px;
+}
+
+.case-tags {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    border: 1px solid #ccc;
+    padding: 7px 10px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+/* =========================
+   PRINCIPLE
+========================= */
+
+.principle {
+    padding: 180px 5vw;
+    background: #e9e9e5;
+}
+
+.principle-inner {
+    max-width: 1250px;
+}
+
+.principle-small {
+    font-size: 11px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    margin-bottom: 45px;
+}
+
+.principle h2 {
+    font-size: clamp(55px, 9vw, 135px);
+    letter-spacing: -.08em;
+    line-height: .84;
+    font-weight: 300;
+}
+
+.principle h2 strong {
+    font-weight: 700;
+}
+
+.principle p {
+    max-width: 600px;
+    margin-top: 55px;
+    font-size: 17px;
+    color: #555;
+}
+
+/* =========================
+   CAPABILITIES
+========================= */
+
+.capabilities {
+    padding: 150px 5vw;
+}
+
+.capabilities-header {
+    margin-bottom: 80px;
+}
+
+.capabilities h2 {
+    font-size: clamp(45px, 6vw, 85px);
+    letter-spacing: -.07em;
+    line-height: .9;
+}
+
+.cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+}
+
+.cap {
+    padding: 35px 30px 50px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.cap:nth-child(3n+2),
+.cap:nth-child(3n+3) {
+    padding-left: 30px;
+    border-left: 1px solid var(--line);
+}
+
+.cap-number {
+    font-size: 10px;
+    color: #888;
+}
+
+.cap h3 {
+    margin-top: 55px;
+    font-size: 23px;
+    letter-spacing: -.03em;
+}
+
+.cap p {
+    margin-top: 15px;
+    color: #666;
+    font-size: 14px;
+    max-width: 300px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+    padding: 160px 5vw;
+    background: #111;
+    color: #fff;
+}
+
+.cta-label {
+    color: #777;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    margin-bottom: 40px;
+}
+
+.cta h2 {
+    font-size: clamp(55px, 9vw, 140px);
+    letter-spacing: -.08em;
+    line-height: .84;
+    max-width: 1100px;
+}
+
+.cta h2 span {
+    color: #777;
+}
+
+.cta-bottom {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cta .button {
+    background: #fff;
+    color: #111;
+}
+
+.email {
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111;
+    color: #777;
+    padding: 30px 5vw;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+
+    .nav {
+        padding: 20px 6vw;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 130px 6vw 80px;
+        min-height: 900px;
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 18vw;
+    }
+
+    .hero-description {
+        font-size: 16px;
+        max-width: 500px;
+    }
+
+    .system-visual {
+        width: 95vw;
+        height: 95vw;
+        right: -35vw;
+        top: 68%;
+        opacity: .45;
+    }
+
+    .intro {
+        padding: 100px 6vw;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .process {
+        padding: 100px 6vw;
+    }
+
+    .process-header {
+        display: block;
+    }
+
+    .process-description {
+        margin-top: 30px;
+    }
+
+    .process-item {
+        grid-template-columns: 45px 1fr;
+    }
+
+    .process-copy {
+        grid-column: 2;
+    }
+
+    .cases {
+        padding: 100px 6vw;
+    }
+
+    .cases-header {
+        display: block;
+    }
+
+    .cases-intro {
+        margin-top: 30px;
+    }
+
+    .case {
+        grid-template-columns: 45px 1fr;
+        gap: 20px;
+    }
+
+    .case-content {
+        grid-column: 2;
+    }
+
+    .case-description {
+        margin-top: 30px;
+    }
+
+    .principle {
+        padding: 110px 6vw;
+    }
+
+    .capabilities {
+        padding: 100px 6vw;
+    }
+
+    .cap-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cap,
+    .cap:nth-child(3n+2),
+    .cap:nth-child(3n+3) {
+        padding: 30px 0;
+        border-left: none;
+    }
+
+    .cta {
+        padding: 110px 6vw;
+    }
+
+    .cta-bottom {
+        display: block;
+    }
+
+    .email {
+        margin-top: 35px;
+    }
+
+    footer {
+        padding: 25px 6vw;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav class="nav">
+
+    <a href="#" class="logo">
+            IE.
+<span>.</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="#approach">Approach</a>
+        <a href="#work">Work</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            AI / Software / Engineering
+        </div>
+
+        <h1>
+            Intelligence.<br>
+            <span class="light">Engineered.</span>
+        </h1>
+
+        <p class="hero-description">
+            We enter the business, understand how it actually works,
+            find the gaps, and engineer systems that solve the problems
+            that matter.
+        </p>
+
+        <div class="hero-bottom">
+
+            <a href="#contact" class="button">
+                Start a conversation →
+            </a>
+
+            <div class="hero-note">
+                Research → Diagnose → Engineer → Deploy → Improve
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Abstract business system -->
+
+    <div class="system-visual">
+
+        <div class="orbit one"></div>
+        <div class="orbit two"></div>
+        <div class="orbit three"></div>
+
+        <div class="core"></div>
+
+        <div class="node n1"></div>
+        <div class="node n2"></div>
+        <div class="node n3"></div>
+        <div class="node n4"></div>
+
+        <div class="label l1">DATA</div>
+        <div class="label l2">OPERATIONS</div>
+        <div class="label l3">SYSTEM</div>
+
+    </div>
+
+    <div class="scroll">
+        Scroll to explore ↓
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro" id="approach">
+
+    <div class="intro-grid">
+
+        <div class="section-number">
+            01 / THE APPROACH
+        </div>
+
+        <div>
+
+            <h2>
+                Your business is the
+                <strong>starting point.</strong>
+            </h2>
+
+            <p class="intro-text">
+                We don't begin with a model, a chatbot, or a technology stack.
+                We begin by understanding the territory.
+                Your people. Your workflows. Your data.
+                Your systems. Your bottlenecks.
+                Your economics.
+                <br><br>
+                Only after the problem is understood do we decide
+                what should be engineered.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section class="process">
+
+    <div class="process-header">
+
+        <div class="process-title">
+            How we<br>work.
+        </div>
+
+        <div class="process-description">
+            Every engagement follows the problem,
+            not the technology.
+        </div>
+
+    </div>
+
+
+    <div class="process-list">
+
+        <div class="process-item">
+
+            <div class="process-number">01</div>
+
+            <div class="process-name">
+                Research
+            </div>
+
+            <div class="process-copy">
+                We study the business, workflows, systems,
+                data and operational reality.
+            </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">02</div>
+
+            <div class="process-name">
+                Diagnose
+            </div>
+
+            <div class="process-copy">
+                We identify where time, money, information
+                or opportunity is being lost.
+            </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">03</div>
+
+            <div class="process-name">
+                Engineer
+            </div>
+
+            <div class="process-copy">
+                We design the right technical system.
+                AI when AI is justified. Software when software is better.
+            </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">04</div>
+
+            <div class="process-name">
+                Deploy
+            </div>
+
+            <div class="process-copy">
+                The system moves from prototype into
+                the real operating environment.
+            </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">05</div>
+
+            <div class="process-name">
+                Improve
+            </div>
+
+            <div class="process-copy">
+                We measure how the system performs,
+                learn from reality and continuously improve it.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CASE STUDIES
+========================= -->
+
+<section class="cases" id="work">
+
+    <div class="cases-header">
+
+        <h2>
+            Selected<br>work.
+        </h2>
+
+        <div class="cases-intro">
+            Real business problems.
+            Engineered systems.
+            Predictive intelligence where
+            it creates value.
+        </div>
+
+    </div>
+
+
+    <!-- CASE 01 -->
+
+    <article class="case">
+
+        <div class="case-number">
+            01
+        </div>
+
+        <div class="case-content">
+
+            <div class="case-category">
+                Logistics / Canada
+            </div>
+
+            <h3>
+                From delivery uncertainty
+                to predictive operations.
+            </h3>
+
+        </div>
+
+        <div class="case-description">
+
+            <p>
+                A Canadian logistics operation needed better visibility
+                into delivery timing and inventory planning.
+            </p>
+
+            <div class="case-tags">
+                <span class="tag">ETA Prediction</span>
+                <span class="tag">Demand Forecasting</span>
+                <span class="tag">Predictive Analytics</span>
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- CASE 02 -->
+
+    <article class="case">
+
+        <div class="case-number">
+            02
+        </div>
+
+        <div class="case-content">
+
+            <div class="case-category">
+                Loyalty / Dubai
+            </div>
+
+            <h3>
+                From customer history
+                to customer prediction.
+            </h3>
+
+        </div>
+
+        <div class="case-description">
+
+            <p>
+                A Dubai loyalty platform wanted to move beyond
+                historical reporting and understand what customers
+                were likely to do next.
+            </p>
+
+            <div class="case-tags">
+                <span class="tag">Next Purchase Prediction</span>
+                <span class="tag">Churn Prediction</span>
+                <span class="tag">Customer Intelligence</span>
+            </div>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- =========================
+     PRINCIPLE
+========================= -->
+
+<section class="principle">
+
+    <div class="principle-inner">
+
+        <div class="principle-small">
+            Our principle
+        </div>
+
+        <h2>
+            Don't start<br>
+            with <strong>AI.</strong><br>
+            Start with<br>
+            the <strong>problem.</strong>
+        </h2>
+
+        <p>
+            Technology is only valuable when it changes something
+            in the real world. Our job is to find that opportunity,
+            engineer the system and make it work inside the business.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CAPABILITIES
+========================= -->
+
+<section class="capabilities" id="capabilities">
+
+    <div class="capabilities-header">
+
+        <div class="section-number">
+            03 / CAPABILITIES
+        </div>
+
+        <h2>
+            What we<br>engineer.
+        </h2>
+
+    </div>
+
+
+    <div class="cap-grid">
+
+        <div class="cap">
+
+            <div class="cap-number">01</div>
+
+            <h3>
+                Predictive Systems
+            </h3>
+
+            <p>
+                Forecasting, prediction and decision-support
+                systems built around real business data.
+            </p>
+
+        </div>
+
+
+        <div class="cap">
+
+            <div class="cap-number">02</div>
+
+            <h3>
+                AI Systems
+            </h3>
+
+            <p>
+                Intelligent systems using machine learning,
+                language models, computer vision and agents
+                where they create measurable value.
+            </p>
+
+        </div>
+
+
+        <div class="cap">
+
+            <div class="cap-number">03</div>
+
+            <h3>
+                Business Automation
+            </h3>
+
+            <p>
+                Removing repetitive operational work by
+                connecting data, software and intelligent workflows.
+            </p>
+
+        </div>
+
+
+        <div class="cap">
+
+            <div class="cap-number">04</div>
+
+            <h3>
+                Data Intelligence
+            </h3>
+
+            <p>
+                Turning scattered operational data into
+                systems that people can actually use.
+            </p>
+
+        </div>
+
+
+        <div class="cap">
+
+            <div class="cap-number">05</div>
+
+            <h3>
+                Custom Software
+            </h3>
+
+            <p>
+                Purpose-built internal platforms and tools
+                designed around how the organization operates.
+            </p>
+
+        </div>
+
+
+        <div class="cap">
+
+            <div class="cap-number">06</div>
+
+            <h3>
+                Deployment & Integration
+            </h3>
+
+            <p>
+                Taking engineered systems into production
+                and integrating them with existing infrastructure.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta" id="contact">
+
+    <div class="cta-label">
+        Start with the problem.
+    </div>
+
+    <h2>
+        Tell us what<br>
+        isn't <span>working.</span>
+    </h2>
+
+    <div class="cta-bottom">
+
+        <a href="mailto:hello@faya.ai" class="button">
+            Talk to FAYA →
+        </a>
+
+        <div class="email">
+            hello@faya.ai
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+        INTELLIGENCE EARTH.
+    </div>
+
+    <div>
+        Intelligence, Engineered.
+    </div>
+
+    <div>
+        © 2026 INTELLIGENCE EARTH.
+ 
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =====================================
+   SUBTLE SYSTEM MOVEMENT
+===================================== */
+
+const visual = document.querySelector(".system-visual");
+
+document.addEventListener("mousemove", (e) => {
+
+    if (window.innerWidth < 850) return;
+
+    const x = (e.clientX / window.innerWidth - .5);
+    const y = (e.clientY / window.innerHeight - .5);
+
+    visual.style.transform =
+        `translate(${x * 18}px, calc(-50% + ${y * 18}px))`;
+
+});
+
+
+/* =====================================
+   REVEAL ON SCROLL
+===================================== */
+
+const revealItems = document.querySelectorAll(
+    ".process-item, .case, .cap, .principle-inner"
+);
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.1
+    }
+);
+
+
+revealItems.forEach(item => {
+
+    item.style.opacity = "0";
+    item.style.transform = "translateY(25px)";
+    item.style.transition =
+        "opacity .8s ease, transform .8s ease";
+
+    observer.observe(item);
+
+});
+
+</script>
+
+</body>
+</html>
